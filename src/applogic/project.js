@@ -1,4 +1,4 @@
-import Entry from "./entry";
+import Entry from './entry'
 
 export default class Project {
     
@@ -15,11 +15,15 @@ export default class Project {
     }
     
     removeEntry(position) {
-        this.entryList.splice(i, 1);
+        this.entryList.splice(position, 1);
     }
 
     toggleIsDoneEntry(entryPos) {
         this.entryList[entryPos].toggleIsDone();
+    }
+
+    getProjectName() {
+        return this.name;
     }
 
 }

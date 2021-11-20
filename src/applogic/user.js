@@ -1,16 +1,13 @@
-import Project from "./project";
-
-export class User {
+export default class User {
 
     projects = [];
+    initiatedNewProject = false;
 
     constructor() {
 
     }
 
-    addNewProject() {
-
-        let project = new Project();
+    addNewProject(project) {
 
         this.projects.push(project);
 
@@ -19,6 +16,19 @@ export class User {
     getProject(position) {
         return this.projects[position];
     }
+
+    getProjects() {
+        return this.projects;
+    }
+
+    setInitiatedNewProject(value) {
+        this.initiatedNewProject = value;
+    }
+
+    getInitiatedNewProject() {
+        return this.initiatedNewProject;
+    }
+
 
     
 
