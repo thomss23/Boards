@@ -20,4 +20,4 @@ function removeTodosFromUI() {
 }
 
 
-export {showProjects, removeProjectsFromUI};
+export {showTodos, removeTodosFromUI};

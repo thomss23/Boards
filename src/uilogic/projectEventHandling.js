@@ -1,9 +1,9 @@
 import { User } from "../applogic/user"
-import {createUserInputElements, removeUserInputElements} from "./userInput"
+import {createUserInputElements, removeUserInputElements, createAddDeleteTodoButtons} from "./userInput"
 import createProjectUIElement from "./projectCreation"
 import {showProjects, removeProjectsFromUI} from "./projectListing"
 import Project from "../applogic/project";
-
+import { showTodos, removeTodosFromUI } from "./todoListing";
 
 const newProjectButton = document.querySelector(".header");
 const body = document.querySelector("body");
@@ -16,19 +16,36 @@ function initProjectUIInteractivity(currentUser) {
 
     body.addEventListener('click', (event) => {
 
-        if(event.target.className == "submit-btn") {
+        switch (event.target.className) {
+            case "submit-btn":
+                let input = document.querySelector("input"); 
+                if(input.value) {
+                    createNewProject(input.value, currentUser);
+                    currentUser.setInitiatedNewProject(false);
+                } else {
+                    input.value = "Empty value not allowed" // show something better here, like a new element to display an error
+                }
+            break;
 
-            let input = document.querySelector("input"); // validate empty value
-            createNewProject(input.value, currentUser);
-            currentUser.setInitiatedNewProject(false);
+            case "cancel-btn":
+                currentUser.setInitiatedNewProject(false);
+                removeUserInputElements();
+            break;
 
-        } else if(event.target.className == "cancel-btn") {
-            currentUser.setInitiatedNewProject(false);
-            removeUserInputElements();
+            case "project-name":
+                createAddDeleteTodoButtons(event.target);
+                showTodos();
+                styleSelectedProject(); 
+            break
+
+
+    
         }
 
 
     });
+
+
 
     
 

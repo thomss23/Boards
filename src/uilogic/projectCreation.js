@@ -2,11 +2,14 @@ function createProjectUIElement(name) {
 
     let projectList = document.querySelector("ul");
 
-    let newProject = document.createElement("li");
+    let newProjectContainer = document.createElement("li");
 
+    let newProject = document.createElement("div");
     newProject.textContent = name;
+    newProject.classList.add("project-name");
 
-    projectList.appendChild(newProject);
+    newProjectContainer.appendChild(newProject);
+    projectList.appendChild(newProjectContainer);
     
 }
 

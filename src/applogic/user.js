@@ -2,7 +2,9 @@ export default class User {
 
     projects = [];
     initiatedNewProject = false;
-
+    initiatedNewTodo = false;
+    initiatedDeleteProject = false;
+    
     constructor() {
 
     }
