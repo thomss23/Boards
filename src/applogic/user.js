@@ -4,7 +4,7 @@ export default class User {
     initiatedNewProject = false;
     initiatedNewTodo = false;
     initiatedDeleteProject = false;
-    
+    selectedProject = false;
     constructor() {
 
     }
@@ -31,7 +31,13 @@ export default class User {
         return this.initiatedNewProject;
     }
 
+    getSelectedProject() {
+        return this.selectedProject;
+    }
 
+    setSelectedProject(option) {
+        this.selectedProject = option;
+    }
     
 
 

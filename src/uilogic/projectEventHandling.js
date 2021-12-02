@@ -1,9 +1,7 @@
 import { User } from "../applogic/user"
-import {createUserInputElements, removeUserInputElements, createAddDeleteTodoButtons} from "./userInput"
-import createProjectUIElement from "./projectCreation"
-import {showProjects, removeProjectsFromUI} from "./projectListing"
+import {showProjects, removeProjectsFromUI, createProjectUIElement, createProjectUserElements, removeProjectInputElements, createAddDeleteTodoButtons, createProjectInputElements, removeSelectedStyleProject, styleSelectedProject} from "./projectUIHandling"
 import Project from "../applogic/project";
-import { showTodos, removeTodosFromUI } from "./todoListing";
+import { showTodos, removeTodosFromUI } from "./todoUIHandling";
 
 const newProjectButton = document.querySelector(".header");
 const body = document.querySelector("body");
@@ -11,12 +9,13 @@ const body = document.querySelector("body");
 function initProjectUIInteractivity(currentUser) {
 
 
-    newProjectButton.addEventListener('click', createUserInputElements.bind(currentUser));
+    newProjectButton.addEventListener('click', createProjectInputElements.bind(currentUser));
 
 
     body.addEventListener('click', (event) => {
 
         switch (event.target.className) {
+
             case "submit-btn":
                 let input = document.querySelector("input"); 
                 if(input.value) {
@@ -29,25 +28,27 @@ function initProjectUIInteractivity(currentUser) {
 
             case "cancel-btn":
                 currentUser.setInitiatedNewProject(false);
-                removeUserInputElements();
+                removeProjectInputElements();
             break;
 
             case "project-name":
-                createAddDeleteTodoButtons(event.target);
-                showTodos();
-                styleSelectedProject(); 
-            break
+                
+                if(!currentUser.getInitiatedNewProject()) {
+                    
+                    removeSelectedStyleProject();
+
+                    createAddDeleteTodoButtons(event.target);
+                    showTodos();
+                    styleSelectedProject(event.target); 
+                }
 
 
-    
+            break;
+
         }
 
 
     });
-
-
-
-    
 
 }
 
@@ -57,7 +58,7 @@ function createNewProject(projectName, currentUser) {
     let project = new Project(projectName);
     currentUser.addNewProject(project);
 
-    removeUserInputElements();
+    removeProjectInputElements();
 
     createProjectUIElement(projectName);
 

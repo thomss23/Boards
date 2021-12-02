@@ -102,3 +102,7 @@ ul {
   display: flex; 
   gap: 8px;
 }
+
+.selected {
+  text-decoration: underline;
+}
