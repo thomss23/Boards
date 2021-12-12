@@ -34,7 +34,7 @@ function initProjectUIInteractivity(currentUser) {
             case "project-name":
                 
                 if(!currentUser.getInitiatedNewProject()) {
-                    
+
                     removeSelectedStyleProject();
 
                     createAddDeleteTodoButtons(event.target);
@@ -45,6 +45,11 @@ function initProjectUIInteractivity(currentUser) {
 
             break;
 
+            case "removeProject":
+                removeProject();
+            break;
+
+            
         }
 
 

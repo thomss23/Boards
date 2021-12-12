@@ -1,5 +1,7 @@
 import User from './applogic/user'
 import initProjectUIInteractivity from "./uilogic/projectEventHandling"
+import initTodoUIInteractivity from "./uilogic/todoEventHandling"
+
 
 // Brainstorm what kind of properties your todo-items are going to have. At a minimum they should have a title, description, dueDate and priority. You might also want to include notes or even a checklist.
 
@@ -21,4 +23,4 @@ let user = new User();
 
 initProjectUIInteractivity(user);
 
-// initTodoUIInteractivity(user);
+initTodoUIInteractivity(user);

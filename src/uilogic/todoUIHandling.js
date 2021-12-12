@@ -1,4 +1,5 @@
 const todoList = document.querySelector(".card-container");
+const modal = document.getElementById("todoModal");
 
 function showTodos(todos) {
     //dunno yet
@@ -19,5 +20,12 @@ function removeTodosFromUI() {
     }
 }
 
+function displayInputTodoModal() {
+    modal.style.display = "block";
+}
 
-export {showTodos, removeTodosFromUI};
+function closeInputTodoModal() {
+    modal.style.display = "none";
+}
+
+export {showTodos, removeTodosFromUI, displayInputTodoModal, closeInputTodoModal};

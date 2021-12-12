@@ -54,8 +54,6 @@ function removeSelectedStyleProject() {
 
     });
 
-
- 
 }
 
 
@@ -105,8 +103,10 @@ function removeProjectInputElements() {
 function createAddDeleteTodoButtons(selectedProject) {
     let addTodoButton = document.createElement("button");
     addTodoButton.textContent = "+";
+    addTodoButton.classList.add("addTodo");
     let removeProjectButton = document.createElement("button");
     removeProjectButton.textContent = "-";
+    removeProjectButton.classList.add("removeProject");
 
     selectedProject.parentElement.appendChild(addTodoButton);
     selectedProject.parentElement.appendChild(removeProjectButton);

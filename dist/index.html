@@ -35,6 +35,9 @@
                 </div> -->
 
 
+
+
+
             </ul>
         </div>
         
@@ -55,13 +58,58 @@
             </div> -->
         
         </div>
+
   
     </div>
+
+
+    <!-- The Modal -->
+    <div id="todoModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <span class="close">&times;</span>
+
+        <form action="javascript:void(0);">
+
+            <label for="title">Title:</label>
+            <input type="text" id="title" name="title"><br><br>
+            <label for="desc">Description:</label>
+            <input type="text" id="desc" name="desc"><br><br>
+            <label for="dueDate">Due Date:</label>
+            <input type="date" id="dueDate" name="dueDate">
+
+            <br><br>
+
+            <label for="prios">Choose a priority:</label>
+            <select id="prios" name="prios">
+                <option value="highpriority">High Priority</option>
+                <option value="normal">Normal</option>
+                <option value="lowpriority">Low Priority</option>
+            </select>
+
+            <br><br>
+
+            <label for="isDone">Is it finished?:</label>
+            <select id="isDone" name="isDone">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+            
+            <br><br>
+
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+
+
+
+</div>
+
   
-  
-    <div class="footer">
-        Boards ❤️
-    </div>    
+<div class="footer">
+    Boards ❤️
+</div>    
 
 
 </body>
